@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,7 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
     {
         public ActionResult Index()
         {
+            ViewBag.Paginas = new Pagina().Lista();
             return View();
         }
 
