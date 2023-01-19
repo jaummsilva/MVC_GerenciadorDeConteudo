@@ -14,6 +14,27 @@ namespace MVC_GerenciadorDeCounteudo
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
             routes.MapRoute(
+                "paginas",
+                "paginas",
+                new { controller = "Paginas", action = "Index" }
+
+                );
+
+            routes.MapRoute(
+                "paginas_cadastro",
+                "paginas/cadastro",
+                new { controller = "Paginas", action = "Cadastro" }
+
+                );
+
+            routes.MapRoute(
+                "paginas_criar",
+                "paginas/criar",
+                new { controller = "Paginas", action = "Criar" }
+
+                );
+
+            routes.MapRoute(
                 "contato",
                 "contato",
                 new { controller = "Home", action = "Contact" }

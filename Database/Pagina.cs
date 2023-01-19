@@ -34,5 +34,20 @@ namespace Database
 
             }
         }
+
+        public void Salvar(int id, string nome, string conteudo, DateTime data)
+        {
+            using (SqlConnection connection = new SqlConnection(sqlConnection()))
+            {
+                string queryString = "insert into paginas(nome,conteudo,data) values('"+nome+"','"+conteudo+"','"+data.ToString("yyyy-MM-dd hh:mm:ss")+"')";
+                if(id != 0)
+                {
+                    queryString = "update paginas set nome='" + nome + "',conteudo='" + conteudo + "',data='" + data.ToString("yyyy-MM-dd hh:mm:ss") + "where id=" + id;
+                }
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
     }
 }

@@ -11,10 +11,8 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
     {
         public ActionResult Index()
         {
-            ViewBag.Paginas = new Pagina().Lista();
             return View();
         }
-
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";

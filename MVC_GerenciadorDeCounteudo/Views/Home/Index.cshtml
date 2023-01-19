@@ -1,25 +1,4 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-    List<Business.Pagina> paginas = ViewBag.Paginas;
-}
-
-<div class="jumbotron">
-    <ul>
-        @foreach (var p in paginas)
-        {
-            <li>
-               Id:  @p.Id
-            </li>
-            <li>
-              Nome:  @p.Nome
-            </li>
-            <li>
-              Conteudo:  @p.Conteudo
-            </li>
-            <li>
-              Data:  @p.Data
-            </li>
-        }
-
-    </ul>
+﻿<div class="jumbotron">
+    <h1> Cadastrar Paginas</h1>
+    <a href="~/paginas" class="btn btn-default" > Ir para cadastro de paginas</a>
 </div>

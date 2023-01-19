@@ -32,5 +32,10 @@ namespace Business
                 return lista;
             }
         }
+
+        public void Save()
+        {
+            new Database.Pagina().Salvar(this.Id, this.Nome, this.Conteudo, this.Data);
+        }
     }
 }
