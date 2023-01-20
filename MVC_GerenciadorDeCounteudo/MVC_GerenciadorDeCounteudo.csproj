@@ -165,6 +165,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Paginas\Index.cshtml" />
     <Content Include="Views\Paginas\Cadastro.cshtml" />
+    <Content Include="Views\Paginas\Editar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -187,6 +188,10 @@
     <ProjectReference Include="..\Business\Business.csproj">
       <Project>{172e4408-3a5d-4e20-b1a6-e19a67435298}</Project>
       <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Database\Database.csproj">
+      <Project>{9eb9f091-f7f0-471d-ae9c-2975b676f56f}</Project>
+      <Name>Database</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

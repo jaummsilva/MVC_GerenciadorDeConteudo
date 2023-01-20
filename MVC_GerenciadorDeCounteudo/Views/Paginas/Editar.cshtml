@@ -1,0 +1,27 @@
+﻿@{
+    Business.Pagina pagina = ViewBag.Pagina;
+}
+
+<div class="jumbotron">
+    <div>
+        <h2>Nova pagina</h2>
+        <a href="/paginas" class="btn btn-default"> Voltar </a>
+    </div> <br />
+
+    <form action="/paginas/@pagina.Id/alterar" method="post">
+        <div class="form-group">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" name="nome" value="@pagina.Nome" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Nome">
+        </div>
+        <div class="form-group">
+            <label for="data">Data</label>
+            <input type="datetime" class="form-control" name="data" value="@pagina.Data" id="exampleInputDate1" aria-describedby="dateHelp" placeholder="Data">
+        </div>
+        <div class="form-group">
+            <label for="conteudo">Conteudo</label>
+            <textarea id="conteudo" class="form-control" name="conteudo" value="@pagina.Conteudo"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Alterar</button>
+    </form>
+    <br />
+</div>

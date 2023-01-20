@@ -28,6 +28,20 @@ namespace MVC_GerenciadorDeCounteudo
                 );
 
             routes.MapRoute(
+                "paginas_editar",
+                "paginas/{id}/editar",
+                new { controller = "Paginas", action = "Editar", id = 0 }
+
+                );
+
+            routes.MapRoute(
+                "paginas_alterar",
+                "paginas/{id}/alterar",
+                new { controller = "Paginas", action = "Alterar", id = 0 }
+
+                );
+
+            routes.MapRoute(
                 "paginas_criar",
                 "paginas/criar",
                 new { controller = "Paginas", action = "Criar" }
