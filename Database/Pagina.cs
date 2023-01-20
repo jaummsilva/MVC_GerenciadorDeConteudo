@@ -34,7 +34,6 @@ namespace Database
 
             }
         }
-
         public void Salvar(int id, string nome, string conteudo, DateTime data)
         {
             using (SqlConnection connection = new SqlConnection(sqlConnection()))
@@ -44,6 +43,17 @@ namespace Database
                 {
                     queryString = "update paginas set nome='" + nome + "',conteudo='" + conteudo + "', data='" + data.ToString("yyyy-MM-dd hh:mm:ss") + "'  where id=" + id;
                 }
+                SqlCommand command = new SqlCommand(queryString, connection);
+                command.Connection.Open();
+                command.ExecuteNonQuery();
+            }
+        }
+
+        public void Excluir(int id)
+        {
+            using (SqlConnection connection = new SqlConnection(sqlConnection()))
+            {
+                string queryString = "delete from paginas  where id=" + id;
                 SqlCommand command = new SqlCommand(queryString, connection);
                 command.Connection.Open();
                 command.ExecuteNonQuery();

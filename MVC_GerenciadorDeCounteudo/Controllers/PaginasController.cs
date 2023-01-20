@@ -30,7 +30,12 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
             pagina.Save();
             Response.Redirect("/paginas");
         }
-            
+        public void Deletar(int id)
+        {
+            Pagina.Excluir(id);
+            Response.Redirect("/paginas");
+        }
+
         public ActionResult Editar(int id)
         {
             var pagina = Pagina.BuscarPorId(id);
@@ -41,7 +46,6 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
         [HttpPost]
         public void Alterar(int id)
         {
-
             try {
             var pagina = Pagina.BuscarPorId(id);
             DateTime data;

@@ -12,8 +12,6 @@
 {
     <div class="alert alert-danger" @TempData["erro"]></div>
 }
-
-
 <div class="jumbotron">
     <h2>Paginas</h2>
     <table class="table table-bordered">
@@ -22,6 +20,8 @@
             <td> Nome </td>
             <td> Data </td>
             <td></td>
+
+
         </tr>
         @foreach (var p in paginas)
         {
@@ -29,13 +29,16 @@
                 <td>@p.Id </td>
                 <td>@p.Nome </td>
                 <td>@p.Data  </td>
-                <td><a href="/paginas/@p.Id/editar" class="btn btn-default">Alterar</a></td>
+                <td>
+                    <a href="/paginas/@p.Id/editar" class="btn btn-primary">Alterar</a>
+                    <a href="/paginas/@p.Id/deletar" class="btn btn-danger" onclick="ValidaExclusão(@p.Id, event)">Excluir</a>
+                </td>
             </tr>
 
         }
     </table>
     <br />
     <div>
-        <a href="/paginas/cadastro" class="btn btn-default"> Cadastrar </a>
+        <a href="/paginas/cadastro" class="btn btn-info"> Cadastrar </a>
     </div>
 </div>

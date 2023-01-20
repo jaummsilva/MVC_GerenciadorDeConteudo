@@ -38,7 +38,12 @@ namespace Business
             new Database.Pagina().Salvar(this.Id, this.Nome, this.Conteudo, this.Data);
         }
 
-        
+        public static void Excluir(int id)
+        {
+            new Database.Pagina().Excluir(id);
+        }
+
+
 
         public static Pagina BuscarPorId(int id)
         {
