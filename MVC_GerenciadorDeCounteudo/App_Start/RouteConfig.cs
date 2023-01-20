@@ -61,6 +61,19 @@ namespace MVC_GerenciadorDeCounteudo
                 new { controller = "Paginas", action = "Criar" }
 
                 );
+            routes.MapRoute(
+                "consulta_cep",
+                "consulta-cep",
+                new { controller = "Cep", action = "Index" }
+
+                );
+
+            routes.MapRoute(
+                "api_consulta_cep",
+                "api/consulta-cep/{cep}",
+                new { controller = "CEP", action = "Consulta", cep="" }
+
+                );
 
             routes.MapRoute(
                 "contato",
