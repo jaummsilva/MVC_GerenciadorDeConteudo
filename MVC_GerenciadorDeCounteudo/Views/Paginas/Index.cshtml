@@ -10,7 +10,7 @@
 
 @if (TempData["erro"] != null)
 {
-    <div class="alert alert-danger" @TempData["erro"]></div>
+    <div class="alert alert-danger" @TempData["erro"]></div> 
 }
 <div class="jumbotron">
     <h2>Paginas</h2>
@@ -19,6 +19,7 @@
             <td> ID </td>
             <td> Nome </td>
             <td> Data </td>
+            <td> Render - Conteudo</td>
             <td></td>
 
 
@@ -29,6 +30,9 @@
                 <td>@p.Id </td>
                 <td>@p.Nome </td>
                 <td>@p.Data  </td>
+                <td>
+                    <a href="/paginas/@p.Id/previsao" target="_blank" class="btn btn-warning">Previsão</a>
+                </td>
                 <td>
                     <a href="/paginas/@p.Id/editar" class="btn btn-primary">Alterar</a>
                     <a href="/paginas/@p.Id/deletar" class="btn btn-danger" onclick="ValidaExclusão(@p.Id, event)">Excluir</a>

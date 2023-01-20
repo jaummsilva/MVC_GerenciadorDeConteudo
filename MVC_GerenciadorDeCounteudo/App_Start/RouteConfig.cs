@@ -42,6 +42,13 @@ namespace MVC_GerenciadorDeCounteudo
                 );
 
             routes.MapRoute(
+                "paginas_previsao",
+                "paginas/{id}/previsao",
+                new { controller = "Paginas", action = "Previsao", id = 0 }
+
+                );
+
+            routes.MapRoute(
                 "paginas_deletar",
                 "paginas/{id}/deletar",
                 new { controller = "Paginas", action = "Deletar", id = 0 }

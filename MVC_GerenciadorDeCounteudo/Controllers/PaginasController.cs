@@ -43,7 +43,15 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
             return View();
         }
 
+        public ActionResult Previsao(int id)
+        {
+            var pagina = Pagina.BuscarPorId(id);
+            ViewBag.Pagina = pagina;
+            return View();
+        }
+
         [HttpPost]
+        [ValidateInput(false)]
         public void Alterar(int id)
         {
             try {
@@ -57,10 +65,10 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
 
             TempData["sucesso"] = "Pagina alterada com sucesso";
         }
-        catch {
-                TempData["erro"] = "Pagina não pode ser alterada";
-        }
-
+        catch(Exception err)
+            {
+                TempData["erro"] = "Pagina não pode ser alterada (" + err.Message + ")";
+            }
             Response.Redirect("/paginas");
         }
     }
