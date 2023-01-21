@@ -1,7 +1,11 @@
 ﻿using Business;
+using NVelocity;
+using NVelocity.App;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
@@ -48,6 +52,33 @@ namespace MVC_GerenciadorDeCounteudo.Controllers
             var pagina = Pagina.BuscarPorId(id);
             ViewBag.Pagina = pagina;
             return View();
+        }
+        [ValidateInput(false)]
+        public ActionResult PrevisaoNvelocity(int id)
+        {
+            var pagina = Pagina.BuscarPorId(id);
+            Velocity.Init();
+
+            var modelo = new
+            {
+                header = "Lista de dados dinamicos",
+                Itens = new[]
+                {
+                    new {ID = 1, Nome = "Texto 1", Negrito = false},
+                    new {ID = 2, Nome = "Texto 2", Negrito = false},
+                    new {ID = 3, Nome = "Texto 3", Negrito = true},
+                }
+            };
+            var velocityContext = new VelocityContext();
+            velocityContext.Put("model", modelo);
+            velocityContext.Put("paginas", new Pagina().Lista());
+
+            var html = new StringBuilder();
+            bool result = Velocity.Evaluate(velocityContext, new StringWriter(html), "NomeParaCapturarLogError", new StringReader(pagina.Conteudo));
+
+            ViewBag.Html = html.ToString();
+            return View();
+
         }
 
         [HttpPost]

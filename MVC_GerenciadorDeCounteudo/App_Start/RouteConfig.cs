@@ -49,6 +49,20 @@ namespace MVC_GerenciadorDeCounteudo
                 );
 
             routes.MapRoute(
+                "paginas_previsao_nvelocity",
+                "paginas/{id}/previsao-nvelocity",
+                new { controller = "Paginas", action = "PrevisaoNvelocity", id = 0 }
+
+                );
+
+            routes.MapRoute(
+                "paginas_previsao_nvelocity_notema",
+                "paginas/{id}/previsao-nvelocity-notema",
+                new { controller = "Paginas", action = "PrevisaoNvelocityNoTema", id = 0 }
+
+                );
+
+            routes.MapRoute(
                 "paginas_deletar",
                 "paginas/{id}/deletar",
                 new { controller = "Paginas", action = "Deletar", id = 0 }
